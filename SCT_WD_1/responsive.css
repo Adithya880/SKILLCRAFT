@@ -1,0 +1,61 @@
+html{
+  scroll-padding-top: 120px;
+}
+
+body{
+  padding-top: 120px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  overflow-x: hidden;
+}
+
+.ptag{
+  margin-bottom: 20px;
+}
+
+.nav_bar{
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color:#fbc7c1;
+}
+
+.nav-item:hover{
+  opacity: 0.1;
+}
+
+.navbar-nav{
+  font-size: 20px;
+  flex-wrap: wrap;
+}
+
+.navbar-brand{
+  padding: 10px;
+  font-family: "Lavishly Yours", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 40px;
+}
+
+.card{
+  width: 700px;
+  margin-top: 60px;
+}
+
+.y,.f,.i{
+  width: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: 2s;
+}
+
+#contact{
+  margin-top: 30px;
+}
+
+.y{
+  width: 25px;
+}

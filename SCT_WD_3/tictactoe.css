@@ -1,0 +1,45 @@
+body{
+  background-color: black;
+  color: white;
+}
+
+h1{
+  text-align: center;
+  font-size: 40px;
+}
+
+.tic-tac-toe {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 0px; /* space between cells */
+  margin-top: 40px;
+  position: absolute;
+  left: 39%;
+}
+
+.cell {
+  border: 2px solid;
+  font-size: 20px;
+  cursor: pointer;
+  color: white;
+  background-color: black;
+  font-size: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.player,.score{
+  font-size: 25px;
+  color: white;
+  background-color: black;
+  text-align: center;
+}
+
+.ps{
+  position: absolute;
+  top: 450px;
+  left: 45%;
+}

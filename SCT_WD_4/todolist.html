@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="todolist.css">
+</head>
+<body>
+  <h1>To-do List</h1>
+  <div class="maind">
+    <input type="text" placeholder="Task name" id="tasks">
+    <input type="date" id="dates">
+    <input type="button" value="Add Task" id="btn" onclick="addTask()">
+  </div>
+  <div class="print">
+      <ol id="space"></ol>
+  </div>
+  
+  <script>
+    
+
+    function addTask(){
+      let t=document.getElementById('tasks').value;
+      let d=document.getElementById('dates').value;
+      if (t.trim() === "" || d.trim() === "") {
+        alert("Please enter task name and date");
+        return;
+      }
+      const li = document.createElement("li");
+      const nameSpan = document.createElement("span");
+      nameSpan.textContent = t;
+
+      const dateSpan = document.createElement("span");
+      dateSpan.textContent = d;
+
+      const btn = document.createElement("button");
+      btn.textContent = "Delete";
+      btn.onclick = function() {
+        li.remove(); // removes the task
+      };
+      li.appendChild(nameSpan);
+       li.appendChild(dateSpan);
+      li.appendChild(btn)
+    document.getElementById("space").appendChild(li);
+
+    document.getElementById('tasks').value = "";
+    document.getElementById('dates').value = "";
+    }
+  </script>
+</body>
+</html>

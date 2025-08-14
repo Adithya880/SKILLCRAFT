@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="tictactoe.css">
+</head>
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div class="tic-tac-toe">
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+    <div class="cell" onclick="called(this)"></div>
+  </div>
+
+  <div class="ps">
+    <p class="player"></p>
+    <p class="score" style="display: none;"></p>
+  </div>
+
+
+<script>
+  const score=document.querySelector(".score");
+  const player =document.querySelector(".player");
+  
+  let currentTurn = 'X';
+  player.innerText="Player 1(X)";
+  const winningCombos = [
+  [0, 1, 2], // rows
+  [3, 4, 5],
+  [6, 7, 8],
+  [0, 3, 6], // columns
+  [1, 4, 7],
+  [2, 5, 8],
+  [0, 4, 8], // diagonals
+  [2, 4, 6]
+];
+
+  function called(cell) {
+    const cells = document.querySelectorAll('.cell');
+    if (cell.innerText.trim() !== '') return;
+
+    cell.innerText = currentTurn;
+    if (checkWinner(cells, currentTurn)) {
+    score.innerText = `Player ${currentTurn === 'X' ? '1' : '2'} Wins!`;
+    score.style.display = 'block';
+    disableBoard(cells);
+    return;
+    }
+
+    const allFilled = Array.from(cells).every(c => c.innerText.trim() !== '');
+    if (allFilled) {
+      score.innerText = "It's a Draw!";
+      score.style.display = 'block';
+      return;
+    }
+
+    if(currentTurn === 'X'){
+      currentTurn ='O';
+      player.innerText="Player 2(O)";
+    }
+    else{
+      currentTurn ='X';
+    player.innerText="Player 1(X)";
+    }
+  }
+
+    function checkWinner(cells, mark) {
+    return winningCombos.some(combo =>
+      combo.every(index => cells[index].innerText === mark)
+    );
+  }
+
+  function disableBoard(cells) {
+    cells.forEach(c => c.style.pointerEvents = 'none');
+  }
+
+</script>
+</body>
+</html>
